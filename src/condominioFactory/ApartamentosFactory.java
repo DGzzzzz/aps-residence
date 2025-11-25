@@ -1,11 +1,11 @@
 package condominioFactory;
 
-import model.Apartamento;
-import model.ApartamentoLuxo;
-import model.ApartamentoPadrao;
+import model.ApartamentoFactory;
+import model.ApartamentoFactoryLuxo;
+import model.ApartamentoFactoryPadrao;
 
 public class ApartamentosFactory {
-    public static Apartamento criarApartamento(
+    public static ApartamentoFactory criarApartamento(
             String tipo,
             int numero,
             int andar,
@@ -15,8 +15,8 @@ public class ApartamentosFactory {
             boolean extra2
             ) {
         return switch (tipo.toLowerCase()) {
-            case "padrao" -> new ApartamentoPadrao(numero, andar, info1, info2);
-            case "luxo" -> new ApartamentoLuxo(numero, andar, info1, extra1, extra2);
+            case "padrao" -> new ApartamentoFactoryPadrao(numero, andar, info1, info2);
+            case "luxo" -> new ApartamentoFactoryLuxo(numero, andar, info1, extra1, extra2);
             default -> throw new IllegalArgumentException("Tipo de apartamento inválido");
         };
     }

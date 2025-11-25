@@ -7,7 +7,7 @@ public class Edificio {
     private int numero;
     private String coresPintura;
     private int qtdAndares;
-    private List<Apartamento> apartamentos = new ArrayList<>();
+    private List<ApartamentoFactory> apartamentoFactories = new ArrayList<>();
 
     public Edificio(int numero, String coresPintura, int qtdAndares) {
         this.numero = numero;
@@ -15,12 +15,12 @@ public class Edificio {
         this.qtdAndares = qtdAndares;
     }
 
-    public void addApartamento(Apartamento apartamento){
-        apartamentos.add(apartamento);
+    public void addApartamento(ApartamentoFactory apartamentoFactory){
+        apartamentoFactories.add(apartamentoFactory);
     }
 
-    public List<Apartamento> getApartamentos(){
-        return apartamentos;
+    public List<ApartamentoFactory> getApartamentos(){
+        return apartamentoFactories;
     }
 
     public int getNumero() {

@@ -1,11 +1,11 @@
 package model;
 
-public class ApartamentoLuxo extends Apartamento {
+public class ApartamentoFactoryLuxo extends ApartamentoFactory {
     private String modeloLuminarias;
     private boolean possuiGeladeiraEmbutida;
     private boolean possuiFogaoEmbutido;
 
-    public ApartamentoLuxo(int andar, int numero, String modeloLuminarias, boolean possuiGeladeiraEmbutida, boolean possuiFogaoEmbutido) {
+    public ApartamentoFactoryLuxo(int andar, int numero, String modeloLuminarias, boolean possuiGeladeiraEmbutida, boolean possuiFogaoEmbutido) {
         super(andar, numero);
         this.modeloLuminarias = modeloLuminarias;
         this.possuiGeladeiraEmbutida = possuiGeladeiraEmbutida;

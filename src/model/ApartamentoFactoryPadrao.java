@@ -1,10 +1,10 @@
 package model;
 
-public class ApartamentoPadrao extends Apartamento {
+public class ApartamentoFactoryPadrao extends ApartamentoFactory {
     private String tipoArmarios;
     private String tipoPisos;
 
-    public ApartamentoPadrao(int andar, int numero, String tipoArmarios, String tipoPisos) {
+    public ApartamentoFactoryPadrao(int andar, int numero, String tipoArmarios, String tipoPisos) {
         super(andar, numero);
         this.tipoArmarios = tipoArmarios;
         this.tipoPisos = tipoPisos;

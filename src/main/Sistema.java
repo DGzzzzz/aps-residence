@@ -1,7 +1,7 @@
 package main;
 
 import condominioFactory.ApartamentosFactory;
-import model.Apartamento;
+import model.ApartamentoFactory;
 import model.Condominio;
 import model.Edificio;
 import model.Morador;
@@ -17,13 +17,12 @@ public class Sistema {
         SistemaService service = SistemaService.getInstancia();
 
         // Criando dados usando Factory
-        Apartamento ap1 = ApartamentosFactory.criarApartamento(
-                "padrao", 101, 1,
+        ApartamentoFactory ap1 = ApartamentosFactory.criarApartamento(                "padrao", 101, 1,
                 "Armários MDF", "Piso Laminado",
                 false, false
         );
 
-        Apartamento ap2 = ApartamentosFactory.criarApartamento(
+        ApartamentoFactory ap2 = ApartamentosFactory.criarApartamento(
                 "luxo", 201, 2,
                 "Luminária Premium", null,
                 true, true
@@ -69,7 +68,7 @@ public class Sistema {
             for (Edificio e : cond.getEdificios()) {
                 System.out.println("  " + e);
 
-                for (Apartamento ap : e.getApartamentos()) {
+                for (ApartamentoFactory ap : e.getApartamentos()) {
                     System.out.println("    " + ap);
 
                     for (Morador mor : ap.getMoradores()) {

@@ -1,13 +1,13 @@
 package dao;
 
-import model.Apartamento;
+import model.ApartamentoFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ApartamentoDAO {
-    private List<Apartamento> lista = new ArrayList<>();
+    private List<ApartamentoFactory> lista = new ArrayList<>();
 
-    public void salvar(Apartamento a) { lista.add(a); }
-    public List<Apartamento> listar() { return lista; }
+    public void salvar(ApartamentoFactory a) { lista.add(a); }
+    public List<ApartamentoFactory> listar() { return lista; }
 }

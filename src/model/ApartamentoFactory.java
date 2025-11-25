@@ -6,13 +6,14 @@ import strategy.RendaStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Apartamento {
+//Fabrica de apartamentos
+public abstract class ApartamentoFactory {
     protected int numero;
     protected int andar;
 //    double rendaMedia;
     protected List<Morador> moradores = new ArrayList<>();
 
-    public Apartamento(int andar, int numero) {
+    public ApartamentoFactory(int andar, int numero) {
         this.andar = andar;
         this.numero = numero;
     }
