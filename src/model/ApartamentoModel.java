@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 //Fabrica de apartamentos
-public abstract class ApartamentoFactory {
+public abstract class ApartamentoModel {
     protected int numero;
     protected int andar;
 //    double rendaMedia;
     protected List<Morador> moradores = new ArrayList<>();
 
-    public ApartamentoFactory(int andar, int numero) {
+    public ApartamentoModel(int andar, int numero) {
         this.andar = andar;
         this.numero = numero;
     }

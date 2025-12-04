@@ -1,7 +1,7 @@
 package main;
 
 import condominioFactory.ApartamentosFactory;
-import model.ApartamentoFactory;
+import model.ApartamentoModel;
 import model.Condominio;
 import model.Edificio;
 import model.Morador;
@@ -131,7 +131,7 @@ public class Sistema {
             ex2 = sc.nextBoolean();
         }
 
-        ApartamentoFactory ap = ApartamentosFactory.criarApartamento(
+        ApartamentoModel ap = ApartamentosFactory.criarApartamento(
                 tipo, num, andar, info1, info2, ex1, ex2
         );
 
@@ -144,7 +144,7 @@ public class Sistema {
     private static void cadastrarMorador() {
         System.out.println("\n=== Cadastro de Morador ===");
 
-        ApartamentoFactory ap = selecionarApartamento();
+        ApartamentoModel ap = selecionarApartamento();
         if (ap == null) return;
 
         sc.nextLine();
@@ -211,7 +211,7 @@ public class Sistema {
 
         // Excluir edifícios e apartamentos do condomínio também
         for (Edificio e : escolhido.getEdificios()) {
-            for (ApartamentoFactory ap : e.getApartamentos()) {
+            for (ApartamentoModel ap : e.getApartamentos()) {
                 service.apartamentoDAO.excluir(ap);
             }
             service.edificioDAO.excluir(e);
@@ -274,7 +274,7 @@ public class Sistema {
         }
 
         // Excluir apartamentos do edifício
-        for (ApartamentoFactory ap : escolhido.getApartamentos()) {
+        for (ApartamentoModel ap : escolhido.getApartamentos()) {
             service.apartamentoDAO.excluir(ap);
         }
 
@@ -295,7 +295,7 @@ public class Sistema {
         Edificio e = selecionarEdificio();
         if (e == null) return;
 
-        List<ApartamentoFactory> lista = e.getApartamentos();
+        List<ApartamentoModel> lista = e.getApartamentos();
 
         if (lista.isEmpty()) {
             System.out.println("Nenhum apartamento cadastrado neste edifício.");
@@ -323,7 +323,7 @@ public class Sistema {
 
         } while (op < 1 || op > lista.size());
 
-        ApartamentoFactory escolhido = lista.get(op - 1);
+        ApartamentoModel escolhido = lista.get(op - 1);
 
         // Confirmação
         System.out.print("Tem certeza que deseja excluir o apartamento "
@@ -355,7 +355,7 @@ public class Sistema {
         System.out.println("\n=== EXCLUIR MORADOR ===");
 
         // Primeiro selecionar o apartamento
-        ApartamentoFactory ap = selecionarApartamento();
+        ApartamentoModel ap = selecionarApartamento();
         if (ap == null) return;
 
         List<Morador> lista = ap.getMoradores();
@@ -467,11 +467,11 @@ public class Sistema {
         return lista.get(op - 1);
     }
 
-    private static ApartamentoFactory selecionarApartamento() {
+    private static ApartamentoModel selecionarApartamento() {
         Edificio e = selecionarEdificio();
         if (e == null) return null;
 
-        List<ApartamentoFactory> lista = e.getApartamentos();
+        List<ApartamentoModel> lista = e.getApartamentos();
 
         if (lista.isEmpty()) {
             System.out.println("Nenhum apartamento neste edifício!");
@@ -509,7 +509,7 @@ public class Sistema {
             for (Edificio e : cond.getEdificios()) {
                 System.out.println("  " + e);
 
-                for (ApartamentoFactory ap : e.getApartamentos()) {
+                for (ApartamentoModel ap : e.getApartamentos()) {
                     System.out.println("    " + ap);
 
                     for (Morador m : ap.getMoradores()) {
@@ -522,7 +522,7 @@ public class Sistema {
 
     //calcular renda
     private static void calcularRenda() {
-        ApartamentoFactory ap = selecionarApartamento();
+        ApartamentoModel ap = selecionarApartamento();
         if (ap == null) return;
 
         ap.setStrategy(new RendaSimplesStrategy());
